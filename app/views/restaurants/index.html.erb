@@ -1,0 +1,25 @@
+<div class="col-sm-8 col-sm-offset-2">
+<br>
+<br>
+<h3>All Restaurants</h3>
+<br>
+   <%= link_to new_restaurant_path(@restaurant) do %>
+      ADD A NEW RESTAURANT!</i></h1>
+    <%end%>
+<br>
+<br>
+
+  <%@restaurants.each do |restaurant| %>
+    <%= link_to restaurant.name, restaurant_path(restaurant) %> <%= restaurant.category %>
+  <p><%= restaurant.address %></p>
+  <p><small><i class="fa fa-phone"></i>   </small><%= restaurant.phone_number %></p>
+
+  <p>Rating:</p>
+  <%= restaurant.rating %>
+  <p>Content:</p>
+  <hr>
+<%end%>
+<br>
+<br>
+</div>
+

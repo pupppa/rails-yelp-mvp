@@ -1,0 +1,30 @@
+
+<div class="col-sm-8 col-sm-offset-2">
+<br>
+<br><br>
+
+    <h1><%= @restaurant.name %></h1>
+    <p><%= @restaurant.address %></p>
+
+
+    <%= link_to restaurant_path(@restaurant),
+      method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+      <i class="fa fa-trash-o"></i>
+    <%end%>
+
+    <%= link_to edit_restaurant_path(@restaurant) do %>
+      <i class="fa fa-pencil"></i></h1>
+    <%end%>
+
+    <%= link_to new_restaurant_review_path(@restaurant) do %>
+      Add a review!</i></h1>
+    <%end%>
+
+  <hr>
+
+  </div>
+
+
+
+

@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>RailsYelpMvp</title>
+
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,14 +14,12 @@
   </head>
 
   <body>
-
-
-  <!-- navbar -->
+<!-- navbar -->
 
   <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+  <%= link_to restaurants_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "https://vivaspot.com/wp-content/uploads/2016/09/Yelp_Logo_07-300x300.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -77,6 +76,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
