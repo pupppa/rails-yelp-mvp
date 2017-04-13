@@ -26,19 +26,18 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
-
-    # no need for app/views/tasks/destroy.html.erb
     redirect_to restaurants_path
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
 
-    # assigns a newly created but unsaved restaurant as @restaurant (FAILED - 2)
-    #  re-renders the 'new' template (FAILED - 3)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
 
-    redirect_to restaurant_path(@restaurant)
   end
 
   def edit

@@ -20,15 +20,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    # we need `restaurant_id` to asssociate review with corresponding restaurant
-    @review.restaurant = Restaurant.find(params[:restaurant_id])
-    @review.save
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review.restaurant = @restaurant
 
-    redirect_to restaurants_path
-
-    #redirects to the parent restaurant (FAILED - 4)
-    # assigns a newly created but unsaved review as @review (FAILED - 5)
-    # re-renders the 'new' template (FAILED - 6)
+    if @review.save
+      redirect_to restaurants_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit

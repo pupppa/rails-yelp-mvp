@@ -2,6 +2,15 @@
 <%= form_for(@restaurant) do |f| %>
 
 <div class="col-sm-8 col-sm-offset-2">
+<% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <div class="form-group">
   <%= f.label :name%>
@@ -17,7 +26,6 @@
   <%= f.label :phone_number %>
   <%= f.text_area :phone_number, class: "form-control" %>
 </div>
-
 
 <div class="form-group">
   <%= f.label :category %>
